@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo - מדף Hive</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <div class="product-page">
+        <div class="product-image-container">
+            <img src="poster.webp" alt="מדף Hive">
+            <button class="ar-button" id="ar-button-trigger">
+                הצג בתלת-ממד ומציאות רבודה
+            </button>
+        </div>
+    </div>
+
+    <div id="popup" class="popup-wrapper">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <model-viewer
+                src="./HiveShelf90cm.glb"
+                alt="מדף Hive בתצוגת 3D ו-AR"
+                ar
+                ar-modes="webxr quick-look"
+                camera-controls
+                touch-action="pan-y"
+                shadow-intensity="1"
+                camera-orbit="0deg 90deg 1.5m"
+                field-of-view="45deg"
+                poster="./poster.webp">
+                <button slot="ar-button" id="ar-button-in-viewer">
+                    הצג בביתך במציאות רבודה
+                </button>
+            </model-viewer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
