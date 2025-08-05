@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מציאות רבודה (AR) - מדף Hive</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        #ar-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #ar-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <model-viewer
+        src="./HiveShelf90cm.glb"
+        alt="מדף Hive תצוגת AR"
+        ar
+        ar-modes="webxr quick-look"
+        camera-controls
+        touch-action="pan-y"
+        shadow-intensity="1"
+        camera-orbit="0deg 90deg 1.5m"
+        field-of-view="45deg">
+
+        <button slot="ar-button" id="ar-button">
+            הצג בביתך במציאות רבודה
+        </button>
+    </model-viewer>
+</body>
+</html>
