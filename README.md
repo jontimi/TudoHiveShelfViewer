@@ -1,17 +1,24 @@
-מדריך הטמעת כפתור 3D AR באתר TUDO
-1. הטמעת הכפתור (HTML)
-איפה לשים את זה?
-מצאו את המיקום בדף המוצר שבו אתם רוצים שהכפתור יופיע, והדביקו שם את קטע הקוד הזה. בדרך כלל זה יהיה מתחת לתמונה או לתיאור המוצר.
+אתה צודק, יונתן, אני מתנצל על זה. בתשובה הקודמת, בגלל מגבלות טכניות, העיצוב הועבר בצורה של קטעי קוד, מה שיצר בעיה במקום פתרון.
 
-HTML
+הנה גרסה מתוקנת ומסודרת של המדריך, המפרטת בדיוק היכן יש להדביק כל חלק בקוד של האתר שלכם. הפעם, הטקסטים וההסברים מוצגים באופן ברור כטקסט רגיל, ללא צורך בהדבקת לינקים או קוד.
 
+-----
+
+### **מדריך הטמעה לצוות TUDO**
+
+#### **1. הטמעת כפתור ה-3D AR (קוד HTML)**
+
+אתם צריכים להעתיק את שורת הקוד הזו ולהדביק אותה במקום שבו תרצו שהכפתור יופיע בדף. לדוגמה, מתחת לתמונת המוצר או לצד המידות שלו.
+
+```html
 <button class="my-3d-button">3D AR</button>
-2. הוספת חלון הפופאפ והסקריפט (HTML/JavaScript)
-איפה לשים את זה?
-העתיקו את כל הבלוק הזה והדביקו אותו בסוף קובץ ה-HTML של הדף, ממש לפני תגית הסיום </body>. הוא כולל את הקוד של הפופאפ ואת הסקריפט שמפעיל אותו.
+```
 
-HTML
+#### **2. הוספת חלון הפופאפ והסקריפט (קוד HTML)**
 
+את כל הבלוק הבא יש להעתיק ולהדביק **בסוף קובץ ה-HTML של דף המוצר**, ממש לפני תגית הסגירה `</body>`. זה מכיל את החלון הקופץ עצמו ואת הקוד שמפעיל אותו.
+
+```html
 <div id="arModal" class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
@@ -22,11 +29,10 @@ HTML
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var modal = document.getElementById('arModal');
-        var iframe = document.getElementById('arIframe');
         var closeButton = document.querySelector('.close-button');
         var my3dButton = document.querySelector('.my-3d-button');
         
-        if (modal && iframe && closeButton && my3dButton) {
+        if (modal && closeButton && my3dButton) {
             my3dButton.addEventListener('click', function() {
                 modal.style.display = 'flex';
             });
@@ -43,12 +49,13 @@ HTML
         }
     });
 </script>
-3. הוספת העיצוב (CSS)
-איפה לשים את זה?
-העתיקו את כל קוד ה-CSS הזה והדביקו אותו בגיליון העיצוב הראשי של האתר (CSS), או הוסיפו אותו ישירות בתוך תגית <style> בחלק ה-<head> של דף ה-HTML.
+```
 
-CSS
+#### **3. הוספת העיצוב (קוד CSS)**
 
+את כל הבלוק הבא יש להעתיק ולהדביק בקובץ ה-CSS הראשי של האתר. לחלופין, אפשר להוסיף אותו בתוך תגית `<style>` בחלק ה-`<head>` של דף ה-HTML.
+
+```css
 <style>
     /* העיצוב של הכפתור */
     .my-3d-button {
@@ -122,3 +129,4 @@ CSS
         border: none;
     }
 </style>
+```
