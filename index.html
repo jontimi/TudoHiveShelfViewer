@@ -6,6 +6,7 @@
     <title>TUDO DESIGN - דף מוצר</title>
     <style>
         body {
+            /* תיקון: מרכז את התוכן של ה-body באמצע המסך */
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -50,7 +51,7 @@
         .modal-content {
             background-color: #fefefe;
             margin: auto;
-            padding: 20px;
+            padding: 0;
             border: 1px solid #888;
             width: 90%;
             max-width: 900px;
@@ -65,14 +66,14 @@
         }
 
         .close-button {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
             position: absolute;
             top: 10px;
             right: 15px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .close-button:hover,
@@ -93,7 +94,7 @@
     <div id="arModal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <iframe id="arIframe" src="" frameborder="0" allow="xr-spatial-tracking" allowfullscreen></iframe>
+            <iframe id="arIframe" src="https://jontimi.github.io/3dModelARviewer/?brand=tudo" frameborder="0" allow="xr-spatial-tracking" allowfullscreen></iframe>
         </div>
     </div>
     <script>
@@ -105,21 +106,16 @@
             
             if (modal && iframe && closeButton && my3dButton) {
                 my3dButton.addEventListener('click', function() {
-                    // קישור לאתר החיצוני שכולל את כל הכפתורים והפונקציות
-                    var arViewerURL = 'https://jontimi.github.io/3dModelARviewer/?brand=tudo';
-                    iframe.src = arViewerURL;
                     modal.style.display = 'flex';
                 });
 
                 closeButton.addEventListener('click', function() {
                     modal.style.display = 'none';
-                    iframe.src = ''; 
                 });
 
                 window.addEventListener('click', function(event) {
                     if (event.target == modal) {
                         modal.style.display = 'none';
-                        iframe.src = ''; 
                     }
                 });
             }
